@@ -40,7 +40,7 @@ class AnagramTest {
     }
 
     @Test
-    void should_returnFalse_unEqualStringLength(){
+    void should_ReturnFalse_UnEqualStringLength(){
         String inputA = "hall";
         String inputB = "hal";
 
@@ -49,7 +49,7 @@ class AnagramTest {
     }
 
     @Test
-    void should_returnFalse_LengthOverFifty(){
+    void should_ReturnFalse_LengthOverFifty(){
         String inputA = "ajdlkjsdlkjadskljdsaljkldsajkjdaskjadsdaskjsdajkdsakjlsadjkdsakjlsdajksad";
         String inputB = "hal";
 
@@ -79,7 +79,7 @@ class AnagramTest {
     @Test
     void should_ReturnTrue_IfUppercaseLetter() {
         String inputA = "Hello";
-        String inputB = "hello";
+        String inputB = "heLlo";
         boolean output = anagram.isAnagram(inputA,inputB);
         assertTrue(output);
     }
