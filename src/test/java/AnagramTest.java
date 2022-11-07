@@ -49,9 +49,18 @@ class AnagramTest {
     }
 
     @Test
-    void should_ReturnFalse_LengthOverFifty(){
+    void should_ReturnFalse_LengthOverFiftyInputA(){
         String inputA = "ajdlkjsdlkjadskljdsaljkldsajkjdaskjadsdaskjsdajkdsakjlsadjkdsakjlsdajksad";
         String inputB = "hal";
+
+        boolean output = anagram.isAnagram(inputA,inputB);
+        assertFalse(output);
+    }
+
+    @Test
+    void should_ReturnFalse_LengthOverFiftyInputB(){
+        String inputA = "adsa";
+        String inputB = "ajdlkjsdlkjadskljdsaljkldsajkjdaskjadsdaskjsdajkdsakjlsadjkdsakjlsdajksad";
 
         boolean output = anagram.isAnagram(inputA,inputB);
         assertFalse(output);
@@ -66,6 +75,8 @@ class AnagramTest {
         boolean output = anagram.isAnagram(inputA,inputB);
         assertTrue(output);
     }
+
+
 
     @Test
     void should_ReturnFalse_NotAnagram() {
@@ -83,4 +94,35 @@ class AnagramTest {
         boolean output = anagram.isAnagram(inputA,inputB);
         assertTrue(output);
     }
+
+    @Test
+    void should_ReturnFalse_NoneEnglishLetter(){
+        String inputA = "7";
+        boolean output = anagram.isEnglishLetters(inputA);
+        assertFalse(output);
+    }
+
+    @Test
+    void should_ReturnFalse_NorwigianLetter(){
+        String inputA = "æå";
+        boolean output = anagram.isEnglishLetters(inputA);
+        assertFalse(output);
+    }
+
+    @Test
+    void should_ReturnTrue_EnglishLetter(){
+        String inputA = "adajas";
+        boolean output = anagram.isEnglishLetters(inputA);
+        assertTrue(output);
+    }
+
+    @Test
+    void should_ReturnFalse_nonEnglishAlphabeticNumber() {
+        String inputA = "Hell7o";
+        String inputB = "HeLl7o";
+        boolean output = anagram.isAnagram(inputA,inputB);
+        assertFalse(output);
+    }
+
+
 }

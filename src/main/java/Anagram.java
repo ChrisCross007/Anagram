@@ -12,6 +12,9 @@ public class Anagram {
         if(isEmptyString || isNotSameLength || isLengthOverFifty){
             return false;
         }
+        if(!isEnglishLetters(a) || !isEnglishLetters(b)){
+            return false;
+        }
 
         return generateFrequencyMap(a).equals(generateFrequencyMap(b));
     }
@@ -31,7 +34,9 @@ public class Anagram {
         return frequencyMap;
     }
 
-
+    public boolean isEnglishLetters(String input) {
+        return input.matches("[a-zA-Z]+");
+    }
 
 
 }
